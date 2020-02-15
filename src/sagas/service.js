@@ -14,9 +14,10 @@ import {
 export function* getGoogleTrends() {
   while (true) {
     yield take(requestGoogleTrends)
-    const [data, err] = yield call(requestGet, `google/`)
+    const [data, err] = yield call(requestGet, `google/`);
     if (data && !err) {
-      yield put(successGoogleTrends(data.results))
+      let parsed = JSON.parse(data.results[0].data);
+      yield put(successGoogleTrends(parsed.trends))
     } else {
       console.log('error!')
     }
@@ -29,7 +30,8 @@ export function* getTwitterTrends() {
     console.log('fire!')
     const [data, err] = yield call(requestGet, 'twitter/');
     if (data && !err) {
-      yield put(successTwitterTrends(data.results))
+      let parsed = JSON.parse(data.results[0].data);
+      yield put(successTwitterTrends(parsed.trends))
     } else {
       console.log('error!')
     }
@@ -39,9 +41,10 @@ export function* getTwitterTrends() {
 export function* getYoutubeTrends() {
   while (true) {
     yield take(requestYoutubeTrends)
-    const [data, err] = yield call(requestGet, 'youtube/')
+    const [data, err] = yield call(requestGet, 'youtube/');
     if (data && !err) {
-      yield put(successYoutubeTrends(data.results))
+      let parsed = JSON.parse(data.results[0].data);
+      yield put(successYoutubeTrends(parsed.trends))
     } else {
       console.log('error!')
     }
@@ -51,9 +54,10 @@ export function* getYoutubeTrends() {
 export function* getQiitaTrends() {
   while (true) {
     yield take(requestQiitaTrends)
-    const [data, err] = yield call(requestGet, 'qiita/')
+    const [data, err] = yield call(requestGet, 'qiita/');
     if (data && !err) {
-      yield put(successQiitaTrends(data.results))
+      let parsed = JSON.parse(data.results[0].data);
+      yield put(successQiitaTrends(parsed.trends))
     } else {
       console.log('error!')
     }
