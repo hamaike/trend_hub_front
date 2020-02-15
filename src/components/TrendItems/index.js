@@ -19,11 +19,15 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+const handleOnClick = (e, url) => {
+  e.preventDefault();
+  window.location.href = url
+};
+
 const Item = ({trend, rank}) => {
-  console.log(trend)
   return (
     <>
-      <ListItem button>
+      <ListItem button={true} onClick={(e) => handleOnClick(e, trend.url)}>
         <div className={style.test}>
           <Typography>
             {rank + 1}.
