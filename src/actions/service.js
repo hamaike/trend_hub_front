@@ -19,3 +19,8 @@ export const REQUEST_QIITA_TRENDS = 'REQUEST_QIITA_TRENDS';
 export const SUCCESS_QIITA_TRENDS = 'SUCCESS_QIITA_TRENDS';
 export const requestQiitaTrends = createAction(REQUEST_QIITA_TRENDS);
 export const successQiitaTrends = createAction(SUCCESS_QIITA_TRENDS);
+
+export const REQUEST_SPOTIFY_TRENDS = 'REQUEST_SPOTIFY_TRENDS';
+export const SUCCESS_SPOTIFY_TRENDS = 'SUCCESS_SPOTIFY_TRENDS';
+export const requestSpotifyTrends = createAction(REQUEST_SPOTIFY_TRENDS);
+export const successSpotifyTrends = createAction(SUCCESS_SPOTIFY_TRENDS);

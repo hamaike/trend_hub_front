@@ -2,7 +2,8 @@ import {
   SUCCESS_TWITTER_TRENDS,
   SUCCESS_GOOGLE_TRENDS,
   SUCCESS_QIITA_TRENDS,
-  SUCCESS_YOUTUBE_TRENDS
+  SUCCESS_YOUTUBE_TRENDS,
+  SUCCESS_SPOTIFY_TRENDS
 } from '../actions/service'
 
 const initialState = {
@@ -10,6 +11,7 @@ const initialState = {
   goTrends: [],
   qiTrends: [],
   yoTrends: [],
+  spTrends: [],
 };
 
 const trend = (state = initialState, action) => {
@@ -33,6 +35,11 @@ const trend = (state = initialState, action) => {
       return {
         ...state,
         yoTrends: action.payload
+      }
+    case SUCCESS_SPOTIFY_TRENDS:
+      return {
+        ...state,
+        spTrends: action.payload
       }
     default:
       return state
