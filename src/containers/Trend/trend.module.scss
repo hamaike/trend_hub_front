@@ -1,3 +1,13 @@
+.superContainer {
+  display: flex;
+  justify-content: center;
+}
+
 .rootContainer {
   margin: 1rem;
+  max-width: 100rem;
+}
+
+.alertMargin {
+  margin: 1rem 0;
 }

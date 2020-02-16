@@ -7,11 +7,10 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 // my
 import style from './trendItems.module.scss'
-
+import ChooseIcon from '../../components/ChooseIcon'
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
@@ -29,12 +28,12 @@ const Item = ({trend, rank}) => {
     <>
       <ListItem button={true} onClick={(e) => handleOnClick(e, trend.url)}>
         <div className={style.test}>
-          <Typography>
+          <p>
             {rank + 1}.
-          </Typography>
-          <Typography>
+          </p>
+          <p>
             {trend.title}
-          </Typography>
+          </p>
         </div>
       </ListItem>
       <Divider/>
@@ -46,24 +45,29 @@ const Item = ({trend, rank}) => {
 const TrendItems = ({trends, name}) => {
   const classes = useStyles();
   return (
-    <ExpansionPanel>
-      <ExpansionPanelSummary
-        expandIcon={<ExpandMoreIcon />}
-        aria-controls="panel1a-content"
-        id="panel1a-header"
-      >
-        <Typography>
-          {name}
-        </Typography>
-      </ExpansionPanelSummary>
-      <ExpansionPanelDetails>
-        <List component="nav" className={classes.root} aria-label="mailbox folders">
-          {trends.map((trend, index) => {
-            return <Item trend={trend} key={index} rank={index}/>
-          })}
-        </List>
-      </ExpansionPanelDetails>
-    </ExpansionPanel>
+    <>
+      <ExpansionPanel>
+        <ExpansionPanelSummary
+          expandIcon={<ExpandMoreIcon/>}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <div className={style.titleContainer}>
+            <p className={style.titleIconContainer}>
+              <ChooseIcon name={name}/>
+            </p>
+            <p>{name}</p>
+          </div>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <List component="nav" className={classes.root} aria-label="mailbox folders">
+            {trends.map((trend, index) => {
+              return <Item trend={trend} key={index} rank={index}/>
+            })}
+          </List>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+    </>
   )
 }
 
