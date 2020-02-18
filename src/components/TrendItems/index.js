@@ -11,12 +11,6 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 // my
 import style from './trendItems.module.scss'
 import ChooseIcon from '../../components/ChooseIcon'
-import TwitterIcon from "../../assets/twitter_icon.svg";
-import GoogleIcon from "../../assets/google_icon.svg";
-import YoutubeIcon from "../../assets/youtube_icon.svg";
-import QiitaIcon from "../../assets/qiita_icon.svg";
-import SpotifyIcon from "../../assets/spotify_icon.svg";
-import PrtimesIcon from "../../assets/prtimes_icon.svg";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -38,7 +32,13 @@ const pipline = (trend, name) => {
     case 'Spotify':
       return trend
     case 'Prtimes':
-      trend.url = "https://prtimes.jp/" + trend.url;
+      trend.url = "https://prtimes.jp" + trend.url;
+      return trend
+    case 'Github':
+      trend.title = trend.name
+      return trend
+    case 'Npm':
+      trend.title = trend.package
       return trend
     default:
       return trend

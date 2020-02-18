@@ -9,7 +9,9 @@ import {
   requestQiitaTrends,
   requestYoutubeTrends,
   requestSpotifyTrends,
-  requestPrtimesTrends
+  requestPrtimesTrends,
+  requestGithubTrends,
+  requestNpmTrends
 } from '../../actions/service'
 import style from './trend.module.scss'
 import Alert from '../../components/Alert'
@@ -27,6 +29,8 @@ const Trend = () => {
     dispatch(requestQiitaTrends());
     dispatch(requestSpotifyTrends());
     dispatch(requestPrtimesTrends());
+    dispatch(requestGithubTrends());
+    dispatch(requestNpmTrends())
   }, []);
 
   const trend = useSelector(trendSelector);
@@ -46,6 +50,8 @@ const Trend = () => {
           <TrendItems trends={trend.qiTrends} name={"Qiita"}/>
           <TrendItems trends={trend.spTrends} name={"Spotify"}/>
           <TrendItems trends={trend.prTrends} name={"Prtimes"}/>
+          <TrendItems trends={trend.giTrends} name={"Github"}/>
+          <TrendItems trends={trend.npTrends} name={"Npm"}/>
         </div>
       </div>
     </>

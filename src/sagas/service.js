@@ -7,12 +7,16 @@ import {
   requestYoutubeTrends,
   requestSpotifyTrends,
   requestPrtimesTrends,
+  requestGithubTrends,
+  requestNpmTrends,
   successGoogleTrends,
   successQiitaTrends,
   successTwitterTrends,
   successYoutubeTrends,
   successSpotifyTrends,
-  successPrtimesTrends
+  successPrtimesTrends,
+  successGithubTrends,
+  successNpmTrends
 } from '../actions/service'
 
 export function* getGoogleTrends() {
@@ -96,6 +100,34 @@ export function* getPrtimesTrends() {
   }
 }
 
+export function* getGithubTrends() {
+  while (true) {
+    yield take(requestGithubTrends)
+    const [data, err] = yield call(requestGet, 'github/');
+    if (data && !err) {
+      let parsed = JSON.parse(data.results[0].data);
+      parsed.trends.splice(20, parsed.trends.length);
+      yield put(successGithubTrends(parsed.trends))
+    } else {
+      console.log('error!')
+    }
+  }
+}
+
+export function* getNpmTrends() {
+  while (true) {
+    yield take(requestNpmTrends)
+    const [data, err] = yield call(requestGet, 'npm/');
+    if (data && !err) {
+      let parsed = JSON.parse(data.results[0].data);
+      parsed.trends.splice(20, parsed.trends.length);
+      yield put(successNpmTrends(parsed.trends))
+    } else {
+      console.log('error!')
+    }
+  }
+}
+
 const Service = [
   fork(getGoogleTrends),
   fork(getTwitterTrends),
@@ -103,6 +135,8 @@ const Service = [
   fork(getQiitaTrends),
   fork(getSpotifyTrends),
   fork(getPrtimesTrends),
+  fork(getGithubTrends),
+  fork(getNpmTrends),
 ];
 
 export default Service

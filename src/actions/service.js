@@ -29,3 +29,13 @@ export const REQUEST_PRTIMES_TRENDS = 'REQUEST_PRTIMES_TRENDS';
 export const SUCCESS_PRTIMES_TRENDS = 'SUCCESS_PRTIMES_TRENDS';
 export const requestPrtimesTrends = createAction(REQUEST_PRTIMES_TRENDS);
 export const successPrtimesTrends = createAction(SUCCESS_PRTIMES_TRENDS);
+
+export const REQUEST_GITHUB_TRENDS = 'REQUEST_GITHUB_TRENDS';
+export const SUCCESS_GITHUB_TRENDS = 'SUCCESS_GITHUB_TRENDS';
+export const requestGithubTrends = createAction(REQUEST_GITHUB_TRENDS);
+export const successGithubTrends = createAction(SUCCESS_GITHUB_TRENDS);
+
+export const REQUEST_NPM_TRENDS = 'REQUEST_NPM_TRENDS';
+export const SUCCESS_NPM_TRENDS = 'SUCCESS_NPM_TRENDS';
+export const requestNpmTrends = createAction(REQUEST_NPM_TRENDS);
+export const successNpmTrends = createAction(SUCCESS_NPM_TRENDS);
