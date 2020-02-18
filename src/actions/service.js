@@ -24,3 +24,8 @@ export const REQUEST_SPOTIFY_TRENDS = 'REQUEST_SPOTIFY_TRENDS';
 export const SUCCESS_SPOTIFY_TRENDS = 'SUCCESS_SPOTIFY_TRENDS';
 export const requestSpotifyTrends = createAction(REQUEST_SPOTIFY_TRENDS);
 export const successSpotifyTrends = createAction(SUCCESS_SPOTIFY_TRENDS);
+
+export const REQUEST_PRTIMES_TRENDS = 'REQUEST_PRTIMES_TRENDS';
+export const SUCCESS_PRTIMES_TRENDS = 'SUCCESS_PRTIMES_TRENDS';
+export const requestPrtimesTrends = createAction(REQUEST_PRTIMES_TRENDS);
+export const successPrtimesTrends = createAction(SUCCESS_PRTIMES_TRENDS);

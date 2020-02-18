@@ -6,11 +6,13 @@ import {
   requestTwitterTrends,
   requestYoutubeTrends,
   requestSpotifyTrends,
+  requestPrtimesTrends,
   successGoogleTrends,
   successQiitaTrends,
   successTwitterTrends,
   successYoutubeTrends,
-  successSpotifyTrends
+  successSpotifyTrends,
+  successPrtimesTrends
 } from '../actions/service'
 
 export function* getGoogleTrends() {
@@ -80,12 +82,27 @@ export function* getSpotifyTrends() {
   }
 }
 
+export function* getPrtimesTrends() {
+  while (true) {
+    yield take(requestPrtimesTrends)
+    const [data, err] = yield call(requestGet, 'prtimes/');
+    if (data && !err) {
+      let parsed = JSON.parse(data.results[0].data);
+      parsed.trends.splice(20, parsed.trends.length);
+      yield put(successPrtimesTrends(parsed.trends))
+    } else {
+      console.log('error!')
+    }
+  }
+}
+
 const Service = [
   fork(getGoogleTrends),
   fork(getTwitterTrends),
   fork(getYoutubeTrends),
   fork(getQiitaTrends),
   fork(getSpotifyTrends),
+  fork(getPrtimesTrends),
 ];
 
 export default Service

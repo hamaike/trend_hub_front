@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 152 152" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="XMLID_7_">
+        <path id="XMLID_2_" d="M140,152L12,152C5.4,152 0,146.6 0,140L0,12C0,5.4 5.4,0 12,0L140,0C146.6,0 152,5.4 152,12L152,140C152,146.6 146.6,152 140,152Z" style="fill:rgb(41,76,122);fill-rule:nonzero;"/>
+        <g transform="matrix(1,0,0,1,-9.52265,-26.9297)">
+            <text x="15.359px" y="193.717px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:191.47px;fill:white;">P</text>
+        </g>
+        <path id="XMLID_14_" d="M140,151L12,151C5.4,151 0,145.6 0,139L0,140C0,146.6 5.4,152 12,152L140,152C146.6,152 152,146.6 152,140L152,139C152,145.6 146.6,151 140,151Z" style="fill:rgb(45,48,121);fill-opacity:0.2;fill-rule:nonzero;"/>
+        <path id="XMLID_15_" d="M140,0L12,0C5.4,0 0,5.4 0,12L0,13C0,6.4 5.4,1 12,1L140,1C146.6,1 152,6.4 152,13L152,12C152,5.4 146.6,0 140,0Z" style="fill:white;fill-opacity:0.2;fill-rule:nonzero;"/>
+    </g>
+    <g id="XMLID_16_">
+    </g>
+</svg>

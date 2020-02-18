@@ -4,6 +4,7 @@ import TwitterIcon from '../../assets/twitter_icon.svg'
 import QiitaIcon from '../../assets/qiita_icon.svg'
 import YoutubeIcon from '../../assets/youtube_icon.svg'
 import SpotifyIcon from '../../assets/spotify_icon.svg'
+import PrtimesIcon from '../../assets/prtimes_icon.svg'
 import style from "./chooseIcon.module.scss";
 
 
@@ -19,6 +20,8 @@ const ChooseIcon = ({name}) => {
       return <img src={QiitaIcon} className={style.titleIcon}/>;
     case 'Spotify':
       return <img src={SpotifyIcon} className={style.titleIcon}/>;
+    case 'Prtimes':
+      return <img src={PrtimesIcon} className={style.titleIcon}/>;
     default:
       return <img src={TwitterIcon} className={style.titleIcon}/>
   }

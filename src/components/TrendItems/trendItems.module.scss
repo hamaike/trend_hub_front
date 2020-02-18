@@ -1,6 +1,7 @@
-.test {
+.detail {
   display: flex;
   align-items: center;
+  font-size: 1.4rem;
 }
 
 .titleContainer {
@@ -10,5 +11,9 @@
 .titleIconContainer {
   width: 1.6rem;
   margin-right: 1rem;
+}
+
+.rank {
+  width: 3rem;
 }
 
