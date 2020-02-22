@@ -39,3 +39,18 @@ export const REQUEST_NPM_TRENDS = 'REQUEST_NPM_TRENDS';
 export const SUCCESS_NPM_TRENDS = 'SUCCESS_NPM_TRENDS';
 export const requestNpmTrends = createAction(REQUEST_NPM_TRENDS);
 export const successNpmTrends = createAction(SUCCESS_NPM_TRENDS);
+
+export const REQUEST_PIXIV_TRENDS = 'REQUEST_PIXIV_TRENDS';
+export const SUCCESS_PIXIV_TRENDS = 'SUCCESS_PIXIV_TRENDS';
+export const requestPixivTrends = createAction(REQUEST_PIXIV_TRENDS);
+export const successPixivTrends = createAction(SUCCESS_PIXIV_TRENDS);
+
+export const REQUEST_HATENA_TRENDS = 'REQUEST_HATENA_TRENDS';
+export const SUCCESS_HATENA_TRENDS = 'SUCCESS_HATENA_TRENDS';
+export const requestHatenaTrends = createAction(REQUEST_HATENA_TRENDS);
+export const successHatenaTrends = createAction(SUCCESS_HATENA_TRENDS);
+
+export const REQUEST_ATMARKIT_TRENDS = 'REQUEST_ATMARKIT_TRENDS';
+export const SUCCESS_ATMARKIT_TRENDS = 'SUCCESS_ATMARKIT_TRENDS';
+export const requestAtmarkitTrends = createAction(REQUEST_ATMARKIT_TRENDS);
+export const successAtmarkitTrends = createAction(SUCCESS_ATMARKIT_TRENDS);

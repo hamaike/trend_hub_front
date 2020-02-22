@@ -6,7 +6,10 @@ import {
   SUCCESS_SPOTIFY_TRENDS,
   SUCCESS_PRTIMES_TRENDS,
   SUCCESS_GITHUB_TRENDS,
-  SUCCESS_NPM_TRENDS
+  SUCCESS_NPM_TRENDS,
+  SUCCESS_PIXIV_TRENDS,
+  SUCCESS_ATMARKIT_TRENDS,
+  SUCCESS_HATENA_TRENDS
 } from '../actions/service'
 
 const initialState = {
@@ -17,7 +20,10 @@ const initialState = {
   spTrends: [],
   prTrends: [],
   giTrends: [],
-  npTrends: []
+  npTrends: [],
+  piTrends: [],
+  haTrends: [],
+  atTrends: []
 };
 
 const trend = (state = initialState, action) => {
@@ -61,6 +67,21 @@ const trend = (state = initialState, action) => {
       return {
         ...state,
         npTrends: action.payload
+      }
+    case SUCCESS_PIXIV_TRENDS:
+      return {
+        ...state,
+        piTrends: action.payload
+      }
+    case SUCCESS_HATENA_TRENDS:
+      return {
+        ...state,
+        haTrends: action.payload
+      }
+    case SUCCESS_ATMARKIT_TRENDS:
+      return {
+        ...state,
+        atTrends: action.payload
       }
     default:
       return state

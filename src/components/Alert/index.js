@@ -1,10 +1,12 @@
 import React from 'react';
-import MuiAlert from '@material-ui/lab/Alert';
-import { makeStyles } from '@material-ui/core/styles';
+import Alert from '@material-ui/lab/Alert';
+import {makeStyles} from '@material-ui/core/styles';
 
-function Alert(props) {
-  return <MuiAlert elevation={6} variant="filled" {...props} />;
-}
+// function Alert(props) {
+//   return (
+//     <MuiAlert elevation={6} variant="filled" {...props} />
+//   )
+// }
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -13,6 +15,9 @@ const useStyles = makeStyles(theme => ({
       marginTop: theme.spacing(2),
     },
   },
+  alert: {
+    fontSize: '1.4rem'
+  }
 }));
 
 export default function Index({msg}) {
@@ -20,7 +25,7 @@ export default function Index({msg}) {
 
   return (
     <div className={classes.root}>
-      <Alert severity="success">{msg}</Alert>
+      <Alert className={classes.alert} severity="success">{msg}</Alert>
     </div>
   );
 }

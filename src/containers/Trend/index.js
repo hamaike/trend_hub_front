@@ -11,10 +11,14 @@ import {
   requestSpotifyTrends,
   requestPrtimesTrends,
   requestGithubTrends,
-  requestNpmTrends
+  requestNpmTrends,
+  requestPixivTrends,
+  requestHatenaTrends,
+  requestAtmarkitTrends
 } from '../../actions/service'
 import style from './trend.module.scss'
 import Alert from '../../components/Alert'
+import Blank from '../../components/Blank'
 
 
 const trendSelector = state => state.trend;
@@ -30,15 +34,18 @@ const Trend = () => {
     dispatch(requestSpotifyTrends());
     dispatch(requestPrtimesTrends());
     dispatch(requestGithubTrends());
-    dispatch(requestNpmTrends())
+    dispatch(requestNpmTrends());
+    dispatch(requestPixivTrends());
+    dispatch(requestHatenaTrends());
+    dispatch(requestAtmarkitTrends());
   }, []);
 
   const trend = useSelector(trendSelector);
 
-  console.log(trend);
   return (
     <>
       <AppBar/>
+      <Blank/>
       <div className={style.superContainer}>
         <div className={style.rootContainer}>
           <div className={style.alertMargin}>
@@ -47,11 +54,14 @@ const Trend = () => {
           <TrendItems trends={trend.twTrends} name={"Twitter"}/>
           <TrendItems trends={trend.goTrends} name={"Google"}/>
           <TrendItems trends={trend.yoTrends} name={"Youtube"}/>
-          <TrendItems trends={trend.qiTrends} name={"Qiita"}/>
           <TrendItems trends={trend.spTrends} name={"Spotify"}/>
           <TrendItems trends={trend.prTrends} name={"Prtimes"}/>
+          <TrendItems trends={trend.piTrends} name={"Pixiv"}/>
+          <TrendItems trends={trend.qiTrends} name={"Qiita"}/>
           <TrendItems trends={trend.giTrends} name={"Github"}/>
           <TrendItems trends={trend.npTrends} name={"Npm"}/>
+          <TrendItems trends={trend.haTrends} name={"Hatena"}/>
+          <TrendItems trends={trend.atTrends} name={"Atmarkit"}/>
         </div>
       </div>
     </>

@@ -9,6 +9,9 @@ import {
   requestPrtimesTrends,
   requestGithubTrends,
   requestNpmTrends,
+  requestPixivTrends,
+  requestHatenaTrends,
+  requestAtmarkitTrends,
   successGoogleTrends,
   successQiitaTrends,
   successTwitterTrends,
@@ -16,7 +19,10 @@ import {
   successSpotifyTrends,
   successPrtimesTrends,
   successGithubTrends,
-  successNpmTrends
+  successNpmTrends,
+  successPixivTrends,
+  successHatenaTrends,
+  successAtmarkitTrends
 } from '../actions/service'
 
 export function* getGoogleTrends() {
@@ -128,6 +134,48 @@ export function* getNpmTrends() {
   }
 }
 
+export function* getPixivTrends() {
+  while (true) {
+    yield take(requestPixivTrends)
+    const [data, err] = yield call(requestGet, 'pixiv/');
+    if (data && !err) {
+      let parsed = JSON.parse(data.results[0].data);
+      parsed.trends.splice(20, parsed.trends.length);
+      yield put(successPixivTrends(parsed.trends))
+    } else {
+      console.log('error!')
+    }
+  }
+}
+
+export function* getHatenaTrends() {
+  while (true) {
+    yield take(requestHatenaTrends);
+    const [data, err] = yield call(requestGet, 'hatena/');
+    if (data && !err) {
+      let parsed = JSON.parse(data.results[0].data);
+      parsed.trends.splice(20, parsed.trends.length);
+      yield put(successHatenaTrends(parsed.trends))
+    } else {
+      console.log('error!')
+    }
+  }
+}
+
+export function* getAtmarkitTrends() {
+  while (true) {
+    yield take(requestAtmarkitTrends);
+    const [data, err] = yield call(requestGet, 'atmarkit/');
+    if (data && !err) {
+      let parsed = JSON.parse(data.results[0].data);
+      parsed.trends.splice(20, parsed.trends.length);
+      yield put(successAtmarkitTrends(parsed.trends))
+    } else {
+      console.log('error!')
+    }
+  }
+}
+
 const Service = [
   fork(getGoogleTrends),
   fork(getTwitterTrends),
@@ -137,6 +185,9 @@ const Service = [
   fork(getPrtimesTrends),
   fork(getGithubTrends),
   fork(getNpmTrends),
+  fork(getPixivTrends),
+  fork(getAtmarkitTrends),
+  fork(getHatenaTrends),
 ];
 
 export default Service

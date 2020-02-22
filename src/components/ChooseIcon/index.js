@@ -7,6 +7,9 @@ import SpotifyIcon from '../../assets/spotify_icon.svg'
 import PrtimesIcon from '../../assets/prtimes_icon.svg'
 import GithubIcon from '../../assets/github_icon.svg'
 import NpmIcon from '../../assets/npm_icon.svg'
+import PixivIcon from '../../assets/pixiv_icon.svg'
+import AtmarkitIcon from '../../assets/atmarkit_icon.svg'
+import HatenaIcon from '../../assets/hatena_icon.svg'
 import style from "./chooseIcon.module.scss";
 
 
@@ -28,6 +31,12 @@ const ChooseIcon = ({name}) => {
       return <img src={GithubIcon} className={style.titleIcon}/>;
     case 'Npm':
       return <img src={NpmIcon} className={style.titleIcon}/>;
+    case 'Pixiv':
+      return <img src={PixivIcon} className={style.titleIcon}/>;
+    case 'Atmarkit':
+      return <img src={AtmarkitIcon} className={style.titleIcon}/>;
+    case 'Hatena':
+      return <img src={HatenaIcon} className={style.titleIcon}/>;
     default:
       return <img src={TwitterIcon} className={style.titleIcon}/>
   }

@@ -19,50 +19,69 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+
 const pipline = (trend, name) => {
+  let sub = null;
+  let url = ''
   switch (name) {
     case 'Twitter':
-      return trend
+      if (trend.tweet_volume === 0) trend.tweet_volume = 'データ無し';
+      sub = '勢い: ' + trend.tweet_volume
+      return [trend, sub]
     case 'Google':
-      return trend
+      return [trend, sub]
     case 'Youtube':
-      return trend
+      sub = 'channel: ' + trend.channel_title + ' / ' + 'view: ' + trend.view_count
+      return [trend, sub]
     case 'Qiita':
-      return trend
+      sub = 'good: ' + trend.good
+      return [trend, sub]
     case 'Spotify':
-      return trend
+      sub = 'artist: ' + trend.artist + ' / ' + 'streams: ' + trend.streams
+      return [trend, sub]
     case 'Prtimes':
-      trend.url = "https://prtimes.jp" + trend.url;
-      return trend
+      if (trend.url.match(/https:\/\/prtimes.jp/)) {
+        return [trend, sub]
+      }
+      trend.url = "https://prtimes.jp" + trend.url
+      return [trend, sub]
     case 'Github':
       trend.title = trend.name
-      return trend
+      sub = 'author: ' + trend.author + ' / ' + trend.currentPeriodStars + ' stars today'
+      return [trend, sub]
     case 'Npm':
+      sub = 'last day downloads: ' + trend.downloads
       trend.title = trend.package
-      return trend
+      return [trend, sub]
+    case 'Pixiv':
+      sub = '作者: ' + trend.author
+      return [trend, sub]
     default:
-      return trend
+      return [trend, 'subDetail']
   }
 }
 
 const handleOnClick = (e, url) => {
   e.preventDefault();
-  window.location.href = url
+  window.open(url, '_blank')
 };
 
-const Item = ({trend, rank}) => {
+const Item = ({trend, rank, subDetail}) => {
   return (
     <>
       <ListItem button={true} onClick={(e) => handleOnClick(e, trend.url)}>
-        <div className={style.detail}>
-          <div className={style.rank}>
-            <p>
-              {rank + 1}.
+        <div className={style.rank}>
+          <p>
+            {rank + 1}.
+          </p>
+        </div>
+        <div>
+          <div className={style.detail}>
+            <p className={subDetail ? style.title: style.nonSubDetail}>
+              {trend.title}
             </p>
           </div>
-          <p>
-            {trend.title}
-          </p>
+          {subDetail ? <div className={style.subDetail}>{subDetail}</div> : null}
         </div>
       </ListItem>
       <Divider/>
@@ -91,8 +110,9 @@ const TrendItems = ({trends, name}) => {
         <ExpansionPanelDetails>
           <List component="nav" className={classes.root} aria-label="mailbox folders">
             {trends.map((trend, index) => {
-              trend = pipline(trend, name);
-              return <Item trend={trend} key={index} rank={index}/>
+              let subDetail;
+              [trend, subDetail] = pipline(trend, name);
+              return <Item trend={trend} key={index} rank={index} subDetail={subDetail}/>
             })}
           </List>
         </ExpansionPanelDetails>

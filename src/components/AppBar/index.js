@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import Hedgehog from '../../assets/hedgehog.svg'
+import Hedgehog from '../../assets/hedgehog_blue.svg'
 import style from './appBar.module.scss'
 
 const useStyles = makeStyles(theme => ({
@@ -15,6 +15,7 @@ const useStyles = makeStyles(theme => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
+    padding: 0
   },
   title: {
     flexGrow: 1,
@@ -26,13 +27,13 @@ export default function ButtonAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             {/*<MenuIcon />*/}
             <img src={Hedgehog} className={style.logo}/>
           </IconButton>
-          <Typography variant="h4" className={classes.title}>
+          <Typography variant="h3" className={classes.title}>
             Trend Hub
           </Typography>
           <Button color="inherit">Login</Button>
