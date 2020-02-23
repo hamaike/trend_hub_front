@@ -10,6 +10,8 @@ import NpmIcon from '../../assets/npm_icon.svg'
 import PixivIcon from '../../assets/pixiv_icon.svg'
 import AtmarkitIcon from '../../assets/atmarkit_icon.svg'
 import HatenaIcon from '../../assets/hatena_icon.svg'
+import InfoqIcon from '../../assets/infoq_favicon.ico'
+import CodezineIcon from '../../assets/codezine.ico'
 import style from "./chooseIcon.module.scss";
 
 
@@ -37,6 +39,10 @@ const ChooseIcon = ({name}) => {
       return <img src={AtmarkitIcon} className={style.titleIcon}/>;
     case 'Hatena':
       return <img src={HatenaIcon} className={style.titleIcon}/>;
+    case 'InfoQ':
+      return <img src={InfoqIcon} className={style.titleIcon}/>;
+    case 'Codezine':
+      return <img src={CodezineIcon} className={style.titleIcon}/>;
     default:
       return <img src={TwitterIcon} className={style.titleIcon}/>
   }

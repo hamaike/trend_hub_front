@@ -56,6 +56,11 @@ const pipline = (trend, name) => {
     case 'Pixiv':
       sub = '作者: ' + trend.author
       return [trend, sub]
+    case 'Codezine':
+      console.log(trend)
+      return [trend, sub]
+    case 'InfoQ':
+      return [trend, sub]
     default:
       return [trend, 'subDetail']
   }

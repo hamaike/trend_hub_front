@@ -9,7 +9,10 @@ import {
   SUCCESS_NPM_TRENDS,
   SUCCESS_PIXIV_TRENDS,
   SUCCESS_ATMARKIT_TRENDS,
-  SUCCESS_HATENA_TRENDS
+  SUCCESS_HATENA_TRENDS,
+  SUCCESS_CODEZINE_TRENDS,
+  SUCCESS_HACKERNOON_TRENDS,
+  SUCCESS_INFOQ_TRENDS
 } from '../actions/service'
 
 const initialState = {
@@ -23,7 +26,10 @@ const initialState = {
   npTrends: [],
   piTrends: [],
   haTrends: [],
-  atTrends: []
+  atTrends: [],
+  coTrends: [],
+  hackTrends: [],
+  inTrends: []
 };
 
 const trend = (state = initialState, action) => {
@@ -82,6 +88,21 @@ const trend = (state = initialState, action) => {
       return {
         ...state,
         atTrends: action.payload
+      }
+    case SUCCESS_INFOQ_TRENDS:
+      return {
+        ...state,
+        inTrends: action.payload
+      }
+    case SUCCESS_CODEZINE_TRENDS:
+      return {
+        ...state,
+        coTrends: action.payload
+      }
+    case SUCCESS_HACKERNOON_TRENDS:
+      return {
+        ...state,
+        hackTrends: action.payload
       }
     default:
       return state

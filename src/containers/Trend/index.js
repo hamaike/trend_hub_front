@@ -14,7 +14,10 @@ import {
   requestNpmTrends,
   requestPixivTrends,
   requestHatenaTrends,
-  requestAtmarkitTrends
+  requestAtmarkitTrends,
+  requestHackernoonTrends,
+  requestInfoqTrends,
+  requestCodezineTrends
 } from '../../actions/service'
 import style from './trend.module.scss'
 import Alert from '../../components/Alert'
@@ -38,10 +41,12 @@ const Trend = () => {
     dispatch(requestPixivTrends());
     dispatch(requestHatenaTrends());
     dispatch(requestAtmarkitTrends());
+    dispatch(requestInfoqTrends());
+    dispatch(requestCodezineTrends());
   }, []);
 
   const trend = useSelector(trendSelector);
-
+  console.log(trend)
   return (
     <>
       <AppBar/>
@@ -62,6 +67,8 @@ const Trend = () => {
           <TrendItems trends={trend.npTrends} name={"Npm"}/>
           <TrendItems trends={trend.haTrends} name={"Hatena"}/>
           <TrendItems trends={trend.atTrends} name={"Atmarkit"}/>
+          <TrendItems trends={trend.coTrends} name={"Codezine"}/>
+          <TrendItems trends={trend.inTrends} name={"InfoQ"}/>
         </div>
       </div>
     </>

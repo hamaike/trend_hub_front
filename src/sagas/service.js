@@ -12,6 +12,9 @@ import {
   requestPixivTrends,
   requestHatenaTrends,
   requestAtmarkitTrends,
+  requestCodezineTrends,
+  requestHackernoonTrends,
+  requestInfoqTrends,
   successGoogleTrends,
   successQiitaTrends,
   successTwitterTrends,
@@ -22,7 +25,10 @@ import {
   successNpmTrends,
   successPixivTrends,
   successHatenaTrends,
-  successAtmarkitTrends
+  successAtmarkitTrends,
+  successCodezineTrends,
+  successHackernoonTrends,
+  successInfoqTrends
 } from '../actions/service'
 
 export function* getGoogleTrends() {
@@ -176,6 +182,48 @@ export function* getAtmarkitTrends() {
   }
 }
 
+export function* getCodezineTrends() {
+  while (true) {
+    yield take(requestCodezineTrends);
+    const [data, err] = yield call(requestGet, 'codezine/');
+    if (data && !err) {
+      let parsed = JSON.parse(data.results[0].data);
+      parsed.trends.splice(20, parsed.trends.length);
+      yield put(successCodezineTrends(parsed.trends))
+    } else {
+      console.log('error!')
+    }
+  }
+}
+
+export function* getInfoqTrends() {
+  while (true) {
+    yield take(requestInfoqTrends);
+    const [data, err] = yield call(requestGet, 'infoq/');
+    if (data && !err) {
+      let parsed = JSON.parse(data.results[0].data);
+      parsed.trends.splice(20, parsed.trends.length);
+      yield put(successInfoqTrends(parsed.trends))
+    } else {
+      console.log('error!')
+    }
+  }
+}
+
+export function* getHackernoonTrends() {
+  while (true) {
+    yield take(requestHackernoonTrends);
+    const [data, err] = yield call(requestGet, 'hackernoon/');
+    if (data && !err) {
+      let parsed = JSON.parse(data.results[0].data);
+      parsed.trends.splice(20, parsed.trends.length);
+      yield put(successHackernoonTrends(parsed.trends))
+    } else {
+      console.log('error!')
+    }
+  }
+}
+
 const Service = [
   fork(getGoogleTrends),
   fork(getTwitterTrends),
@@ -188,6 +236,9 @@ const Service = [
   fork(getPixivTrends),
   fork(getAtmarkitTrends),
   fork(getHatenaTrends),
+  fork(getHackernoonTrends),
+  fork(getCodezineTrends),
+  fork(getInfoqTrends)
 ];
 
 export default Service

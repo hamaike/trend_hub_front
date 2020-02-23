@@ -54,3 +54,18 @@ export const REQUEST_ATMARKIT_TRENDS = 'REQUEST_ATMARKIT_TRENDS';
 export const SUCCESS_ATMARKIT_TRENDS = 'SUCCESS_ATMARKIT_TRENDS';
 export const requestAtmarkitTrends = createAction(REQUEST_ATMARKIT_TRENDS);
 export const successAtmarkitTrends = createAction(SUCCESS_ATMARKIT_TRENDS);
+
+export const REQUEST_INFOQ_TRENDS = 'REQUEST_INFOQ_TRENDS';
+export const SUCCESS_INFOQ_TRENDS = 'SUCCESS_INFOQ_TRENDS';
+export const requestInfoqTrends = createAction(REQUEST_INFOQ_TRENDS);
+export const successInfoqTrends = createAction(SUCCESS_INFOQ_TRENDS);
+
+export const REQUEST_CODEZINE_TRENDS = 'REQUEST_CODEZINE_TRENDS';
+export const SUCCESS_CODEZINE_TRENDS = 'SUCCESS_CODEZINE_TRENDS';
+export const requestCodezineTrends = createAction(REQUEST_CODEZINE_TRENDS);
+export const successCodezineTrends = createAction(SUCCESS_CODEZINE_TRENDS);
+
+export const REQUEST_HACKERNOON_TRENDS = 'REQUEST_HACKERNOON_TRENDS';
+export const SUCCESS_HACKERNOON_TRENDS = 'SUCCESS_HACKERNOON_TRENDS';
+export const requestHackernoonTrends = createAction(REQUEST_HACKERNOON_TRENDS);
+export const successHackernoonTrends = createAction(SUCCESS_HACKERNOON_TRENDS);
